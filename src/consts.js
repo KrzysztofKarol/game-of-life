@@ -1,3 +1,6 @@
+/**
+ * @typedef {boolean} CellStatus
+ */
 const ALIVE = true;
 const DEAD = false;
 

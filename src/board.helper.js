@@ -1,5 +1,6 @@
 import * as R from 'ramda';
 import { ALIVE, DEAD } from './consts';
+import { applyRules } from './rules';
 
 const mapIndexed = R.addIndex(R.map);
 
@@ -33,27 +34,11 @@ export const normalize = arr =>
 export const getNextBoard = board => {
   return mapIndexed(
     (row, rowI) =>
-      mapIndexed((cell, colI) => {
-        const numOfLivingNeighbors = getNumOfLivingNeighbors(board, rowI, colI);
-
-        // prettier-ignore
-        // return R.cond([
-        // TODO: Make it work
-        // TODO: Make them point-free
-        //   [(c, n) =>console.log(c, n, R.and(R.equals(DEAD, c),  R.equals(3, n)))|| R.and(R.equals(DEAD, c),  R.equals(3, n)),                  R.always(ALIVE)],
-        //   [(c, n) => R.and(R.equals(ALIVE, c), R.either([R.lt(2), R.gt(3)])(n)), R.always(DEAD) ],
-        //   [R.T,                                                                  R.always(cell) ],
-        // ])(cell, getNumOfLivingNeighbors(board, rowI, colI));
-
-        if (cell === DEAD) {
-          if (numOfLivingNeighbors === 3) return ALIVE;
-        } else {
-          if (numOfLivingNeighbors < 2 || numOfLivingNeighbors > 3)
-            return DEAD;
-        }
-
-        return cell;
-      }, row),
+      mapIndexed(
+        (cell, colI) =>
+          applyRules(cell, getNumOfLivingNeighbors(board, rowI, colI)),
+        row,
+      ),
     board,
   );
 };
