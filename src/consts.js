@@ -4,4 +4,7 @@
 const ALIVE = true;
 const DEAD = false;
 
-export { ALIVE, DEAD };
+const ALIVE_EMOJI = '⬛';
+const DEAD_EMOJI = '⬜';
+
+export { ALIVE, ALIVE_EMOJI, DEAD, DEAD_EMOJI };

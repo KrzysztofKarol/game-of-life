@@ -18,4 +18,7 @@ export const applyRules = (cell, numOfLivingNeighbors) => R.cond([
 
     // 4. Any dead cell with three live neighbours becomes a live cell, as if by reproduction.
     [R.useWith(R.and, [R.equals(DEAD),  R.equals(3)]),                        R.always(ALIVE)],
+
+    // Otherwise do nothing
+    [R.T,                                                                     R.always(cell)]
   ])(cell, numOfLivingNeighbors);

@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { ALIVE, DEAD } from './consts';
+import { ALIVE, ALIVE_EMOJI, DEAD } from './consts';
 import { applyRules } from './rules';
 
 const mapIndexed = R.addIndex(R.map);
@@ -28,8 +28,13 @@ const getNumOfLivingNeighbors = (board, rowI, colI) => {
   }, 0);
 };
 
-export const normalize = arr =>
-  arr.map(row => row.split('').map(cell => (cell === '■' ? ALIVE : DEAD)));
+export const normalize = str =>
+  str
+    .split('\n')
+    .filter(R.complement(R.isEmpty))
+    .map(row =>
+      row.split('').map(cell => (cell === ALIVE_EMOJI ? ALIVE : DEAD)),
+    );
 
 export const getNextBoard = board => {
   return mapIndexed(
