@@ -13,7 +13,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "version": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file && git add CHANGELOG.md"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,6 +32,7 @@
     ]
   },
   "devDependencies": {
+    "conventional-changelog": "^3.1.8",
     "prettier": "^1.18.2"
   }
 }
