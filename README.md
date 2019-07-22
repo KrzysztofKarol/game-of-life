@@ -19,6 +19,7 @@
 - Allow to paste a board
 - Allow to draw a board
 - Drag and drop predefined shapes
+- Allow to change rules during the game
 
 ## Changes (Developer satisfaction perspective):
 
