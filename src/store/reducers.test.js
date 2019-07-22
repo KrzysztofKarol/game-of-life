@@ -1,6 +1,6 @@
 import * as boardHelper from '../board.helper';
-import { initBoard, updateBoard } from './actions';
-import { _boardReducer } from './reducers';
+import { initBoard, setAnimationSpeed, updateBoard } from './actions';
+import { _boardReducer, _settingsReducer } from './reducers';
 
 describe('board', () => {
   describe('INIT_BOARD', () => {
@@ -41,6 +41,35 @@ describe('board', () => {
       const state = [];
 
       const actual = _boardReducer(state, { type: 'UNKNOWN_ACTION' });
+
+      expect(actual).toBe(state);
+    });
+  });
+});
+
+describe('settings', () => {
+  describe('SET_ANIMATION_SPEED', () => {
+    it('should return provided board', () => {
+      const state = {
+        other: 'settings',
+      };
+      const speed = 10;
+      const expected = {
+        ...state,
+        speed: 10,
+      };
+
+      const actual = _settingsReducer(state, setAnimationSpeed(speed));
+
+      expect(actual).toEqual(expected);
+    });
+  });
+
+  describe('UNKNOWN_ACTION', () => {
+    it('should return state', () => {
+      const state = {};
+
+      const actual = _settingsReducer(state, { type: 'UNKNOWN_ACTION' });
 
       expect(actual).toBe(state);
     });
