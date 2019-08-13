@@ -8,12 +8,20 @@ import AnimationSpeedSlider from './AnimationSpeedSlider';
 import './App.css';
 import Board from './Board';
 import { randomBoard, withPentomino } from './board-templates';
-import { initBoard, updateBoard } from './store/actions';
+import {
+  initBoard,
+  toggleStartStop as toggleStartStopAction,
+  updateBoard,
+} from './store/actions';
 
 function App() {
   const dispatch = useDispatch();
   const board = useSelector(R.prop('board'));
-  const { speed } = useSelector(R.prop('settings'));
+  const { speed, started } = useSelector(R.prop('settings'));
+
+  const toggleStartStop = () => {
+    dispatch(toggleStartStopAction());
+  };
 
   useEffect(() => {
     const initialBoard = Math.random() < 0.5 ? withPentomino : randomBoard;
@@ -22,18 +30,24 @@ function App() {
 
   useEffect(() => {
     const stepInterval = 1000 / speed;
-    const timer = window.setInterval(
-      () => dispatch(updateBoard()),
-      stepInterval,
-    );
 
-    return () => {
-      window.clearInterval(timer);
-    };
-  }, [dispatch, speed]);
+    if (started) {
+      const timer = window.setInterval(
+        () => dispatch(updateBoard()),
+        stepInterval,
+      );
+
+      return () => {
+        window.clearInterval(timer);
+      };
+    }
+  }, [dispatch, speed, started]);
 
   return (
     <div>
+      <button onClick={toggleStartStop} style={{ fontSize: 24 }}>
+        {started ? '⏸' : '▶️'}
+      </button>
       {board && <Board board={board} />}
       <AnimationSpeedSlider />
     </div>

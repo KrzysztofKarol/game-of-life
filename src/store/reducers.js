@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux';
 import { getNextBoard } from '../board.helper';
-import { INIT_BOARD, SET_ANIMATION_SPEED, UPDATE_BOARD } from './actions';
+import {
+  INIT_BOARD,
+  SET_ANIMATION_SPEED,
+  TOGGLE_START_STOP,
+  UPDATE_BOARD,
+} from './actions';
 
 function boardReducer(state = null, action) {
   switch (action.type) {
@@ -13,12 +18,17 @@ function boardReducer(state = null, action) {
   }
 }
 
-function settingsReducer(state = { speed: 2 }, action) {
+function settingsReducer(state = { speed: 2, started: true }, action) {
   switch (action.type) {
     case SET_ANIMATION_SPEED:
       return {
         ...state,
         speed: action.payload,
+      };
+    case TOGGLE_START_STOP:
+      return {
+        ...state,
+        started: !state.started,
       };
 
     default:
