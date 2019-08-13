@@ -1,3 +1,9 @@
+# [0.4.0](https://github.com/KrzysztofKarol/game-of-life/compare/0.3.0...0.4.0) (2019-08-13)
+
+### Features
+
+- **board:** allow to toggle cell value ([6e439ee](https://github.com/KrzysztofKarol/game-of-life/commit/6e439ee))
+
 # [0.3.0](https://github.com/KrzysztofKarol/game-of-life/compare/0.2.0...0.3.0) (2019-08-13)
 
 ### Bug Fixes
