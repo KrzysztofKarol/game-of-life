@@ -1,3 +1,9 @@
+# [0.5.0](https://github.com/KrzysztofKarol/game-of-life/compare/0.4.0...0.5.0) (2019-08-13)
+
+### Features
+
+- **board:** allow to draw cells with ctrlKey ([efe6914](https://github.com/KrzysztofKarol/game-of-life/commit/efe6914))
+
 # [0.4.0](https://github.com/KrzysztofKarol/game-of-life/compare/0.3.0...0.4.0) (2019-08-13)
 
 ### Features
