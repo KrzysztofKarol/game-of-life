@@ -20,6 +20,7 @@ function Board({ board }) {
           key={`${r},${c}`}
           className={`cell ${board[r][c] === ALIVE ? 'alive' : 'dead'}`}
           onClick={() => dispatch(updateCell(r, c))}
+          onMouseOver={({ ctrlKey }) => ctrlKey && dispatch(updateCell(r, c))}
         />,
       );
     }
