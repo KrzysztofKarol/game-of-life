@@ -47,3 +47,10 @@ export const getNextBoard = board => {
     board,
   );
 };
+
+export const updateCell = (state, rowI, colI) =>
+  state.map((row, rowIndex) =>
+    rowIndex === rowI
+      ? row.map((cell, colIndex) => (colIndex === colI ? !cell : cell))
+      : row,
+  );

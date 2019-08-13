@@ -1,9 +1,13 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import './Board.css';
 import { ALIVE } from './consts';
+import { updateCell } from './store/actions';
 
 function Board({ board }) {
+  const dispatch = useDispatch();
+
   const rows = board.length;
   const cols = board[0].length;
 
@@ -15,6 +19,7 @@ function Board({ board }) {
         <td
           key={`${r},${c}`}
           className={`cell ${board[r][c] === ALIVE ? 'alive' : 'dead'}`}
+          onClick={() => dispatch(updateCell(r, c))}
         />,
       );
     }

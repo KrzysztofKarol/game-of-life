@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import { getNextBoard } from '../board.helper';
+import { getNextBoard, updateCell } from '../board.helper';
 import {
   INIT_BOARD,
   SET_ANIMATION_SPEED,
   TOGGLE_START_STOP,
   UPDATE_BOARD,
+  UPDATE_CELL,
 } from './actions';
 
 function boardReducer(state = null, action) {
@@ -13,6 +14,10 @@ function boardReducer(state = null, action) {
       return action.payload;
     case UPDATE_BOARD:
       return getNextBoard(state);
+    case UPDATE_CELL:
+      const { rowI, colI } = action.payload;
+
+      return updateCell(state, rowI, colI);
     default:
       return state;
   }
