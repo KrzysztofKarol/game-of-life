@@ -1,7 +1,13 @@
 import { combineReducers } from 'redux';
-import { getNextBoard, updateCell } from '../board.helper';
+import {
+  getNextBoard,
+  insertShape,
+  normalize,
+  updateCell,
+} from '../board.helper';
 import {
   INIT_BOARD,
+  INSERT_SHAPE,
   SET_ANIMATION_SPEED,
   TOGGLE_START_STOP,
   UPDATE_BOARD,
@@ -12,6 +18,10 @@ function boardReducer(state = null, action) {
   switch (action.type) {
     case INIT_BOARD:
       return action.payload;
+    case INSERT_SHAPE:
+      const normalizedShape = normalize(action.payload);
+
+      return insertShape(state, normalizedShape);
     case UPDATE_BOARD:
       return getNextBoard(state);
     case UPDATE_CELL:

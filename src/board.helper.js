@@ -48,6 +48,44 @@ export const getNextBoard = board => {
   );
 };
 
+const getNumOfRowsAndCols = arrayOfArries => ({
+  rows: arrayOfArries.length,
+  cols: arrayOfArries[0].length,
+});
+
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive).
+ * The value is no lower than min (or the next integer greater than min
+ * if min isn't an integer) and no greater than max (or the next integer
+ * lower than max if max isn't an integer).
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export const insertShape = (state, normalizedShape) => {
+  const { rows: stateRows, cols: stateCols } = getNumOfRowsAndCols(state);
+  const { rows: shapeRows, cols: shapeCols } = getNumOfRowsAndCols(
+    normalizedShape,
+  );
+
+  const rowOffset = getRandomInt(0, stateRows - shapeRows);
+  const colOffset = getRandomInt(0, stateCols - shapeCols);
+
+  const copy = JSON.parse(JSON.stringify(state));
+
+  normalizedShape.forEach((shapeRow, rowIndex) =>
+    shapeRow.forEach((cell, colIndex) => {
+      copy[rowIndex + rowOffset][colIndex + colOffset] = cell;
+    }),
+  );
+
+  return copy;
+};
+
 export const updateCell = (state, rowI, colI) =>
   state.map((row, rowIndex) =>
     rowIndex === rowI

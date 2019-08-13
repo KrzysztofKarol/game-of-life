@@ -8,6 +8,7 @@ import AnimationSpeedSlider from './AnimationSpeedSlider';
 import './App.css';
 import Board from './Board';
 import { randomBoard, withPentomino } from './board-templates';
+import ShapeHolder from './ShapeHolder';
 import {
   initBoard,
   toggleStartStop as toggleStartStopAction,
@@ -48,6 +49,7 @@ function App() {
       <button onClick={toggleStartStop} style={{ fontSize: 24 }}>
         {started ? '⏸' : '▶️'}
       </button>
+      <ShapeHolder />
       {board && <Board board={board} />}
       <AnimationSpeedSlider />
     </div>
