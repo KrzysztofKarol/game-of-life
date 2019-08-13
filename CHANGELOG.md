@@ -1,3 +1,9 @@
+# [0.6.0](https://github.com/KrzysztofKarol/game-of-life/compare/0.5.0...0.6.0) (2019-08-13)
+
+### Features
+
+- **board:** allow to insert randomly predefined shapes ([86bbdcf](https://github.com/KrzysztofKarol/game-of-life/commit/86bbdcf))
+
 # [0.5.0](https://github.com/KrzysztofKarol/game-of-life/compare/0.4.0...0.5.0) (2019-08-13)
 
 ### Features
