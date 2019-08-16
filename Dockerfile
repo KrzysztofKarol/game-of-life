@@ -2,7 +2,7 @@
 # https://dev.to/avatsaev/create-efficient-angular-docker-images-with-multi-stage-builds-1f3n
 
 ### STAGE 1: Build ###
-FROM node:12.8.0-alpine as builder
+FROM node:12.8.1-alpine as builder
 
 COPY package.json package-lock.json ./
 
