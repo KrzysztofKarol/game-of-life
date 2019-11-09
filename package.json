@@ -17,9 +17,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:all": "npm run test -- --watchAll=false",
+    "test:ci": "start-server-and-test start 3000 cypress:run:record",
     "eject": "react-scripts eject",
     "preversion": "npm run test:all",
-    "version": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file && git add CHANGELOG.md"
+    "version": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file && git add CHANGELOG.md",
+    "cypress:run": "cypress run",
+    "cypress:run:record": "cypress run --record --key $CYPRESS_DASHBOARD_KEY",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,10 +43,12 @@
   "devDependencies": {
     "@types/jest": "24.0.22",
     "conventional-changelog": "3.1.12",
+    "cypress": "^3.6.1",
     "husky": "3.0.9",
     "lint-staged": "9.4.2",
     "prettier": "1.19.1",
-    "redux-devtools-extension": "2.13.8"
+    "redux-devtools-extension": "2.13.8",
+    "start-server-and-test": "^1.10.6"
   },
   "husky": {
     "hooks": {
