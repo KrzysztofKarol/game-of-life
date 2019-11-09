@@ -41,7 +41,7 @@
     "conventional-changelog": "3.1.12",
     "husky": "3.0.9",
     "lint-staged": "9.4.2",
-    "prettier": "1.18.2",
+    "prettier": "1.19.0",
     "redux-devtools-extension": "2.13.8"
   },
   "husky": {
