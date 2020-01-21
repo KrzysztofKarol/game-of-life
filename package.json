@@ -44,7 +44,7 @@
     "@types/jest": "24.9.0",
     "conventional-changelog": "3.1.18",
     "cypress": "3.8.2",
-    "husky": "4.0.10",
+    "husky": "4.2.0",
     "lint-staged": "10.0.1",
     "prettier": "1.19.1",
     "redux-devtools-extension": "2.13.8",
