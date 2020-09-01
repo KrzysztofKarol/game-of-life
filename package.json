@@ -43,7 +43,7 @@
   "devDependencies": {
     "@types/jest": "26.0.12",
     "conventional-changelog": "3.1.23",
-    "cypress": "5.0.0",
+    "cypress": "5.1.0",
     "husky": "4.2.5",
     "lint-staged": "10.2.13",
     "prettier": "2.1.1",
