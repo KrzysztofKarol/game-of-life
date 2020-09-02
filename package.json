@@ -41,7 +41,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "26.0.12",
+    "@types/jest": "26.0.13",
     "conventional-changelog": "3.1.23",
     "cypress": "5.1.0",
     "husky": "4.2.5",
