@@ -1,6 +1,8 @@
 import * as R from 'ramda';
 import { ALIVE, DEAD } from './consts';
 
+// Disable eslint rule because of R.useWith
+/* eslint-disable react-hooks/rules-of-hooks */
 // prettier-ignore
 /**
  * @param {CellStatus} cell
