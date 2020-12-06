@@ -1,10 +1,11 @@
-import * as R from 'ramda';
-import { ALIVE, ALIVE_EMOJI, DEAD } from './consts';
-import { applyRules } from './rules';
+import * as R from "ramda";
+import { ALIVE, ALIVE_EMOJI, DEAD } from "./consts";
+import { applyRules } from "./rules";
+import { Board } from "./store/types";
 
 const mapIndexed = R.addIndex(R.map);
 
-const getNumOfLivingNeighbors = (board, rowI, colI) => {
+const getNumOfLivingNeighbors = (board: Board, rowI: number, colI: number) => {
   const numOfRows = board.length;
   const numOfCols = board[0].length;
 
@@ -28,27 +29,30 @@ const getNumOfLivingNeighbors = (board, rowI, colI) => {
   }, 0);
 };
 
-export const normalize = str =>
+export const normalize = (str: string) =>
   str
-    .split('\n')
+    .split("\n")
     .filter(R.complement(R.isEmpty))
-    .map(row =>
-      row.split('').map(cell => (cell === ALIVE_EMOJI ? ALIVE : DEAD)),
+    .map((row) =>
+      row.split("").map((cell) => (cell === ALIVE_EMOJI ? ALIVE : DEAD))
     );
 
-export const getNextBoard = board => {
-  return mapIndexed(
+export const getNextBoard = (board: Board) =>
+  mapIndexed(
     (row, rowI) =>
       mapIndexed(
         (cell, colI) =>
+          // TODO
+          // @ts-ignore
           applyRules(cell, getNumOfLivingNeighbors(board, rowI, colI)),
-        row,
+        // TODO
+        // @ts-ignore
+        row
       ),
-    board,
+    board
   );
-};
 
-const getNumOfRowsAndCols = arrayOfArries => ({
+const getNumOfRowsAndCols = (arrayOfArries: unknown[][]) => ({
   rows: arrayOfArries.length,
   cols: arrayOfArries[0].length,
 });
@@ -60,16 +64,16 @@ const getNumOfRowsAndCols = arrayOfArries => ({
  * lower than max if max isn't an integer).
  * Using Math.round() will give you a non-uniform distribution!
  */
-function getRandomInt(min, max) {
+function getRandomInt(min: number, max: number) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export const insertShape = (state, normalizedShape) => {
+export const insertShape = (state: any, normalizedShape: any) => {
   const { rows: stateRows, cols: stateCols } = getNumOfRowsAndCols(state);
   const { rows: shapeRows, cols: shapeCols } = getNumOfRowsAndCols(
-    normalizedShape,
+    normalizedShape
   );
 
   const rowOffset = getRandomInt(0, stateRows - shapeRows);
@@ -77,18 +81,20 @@ export const insertShape = (state, normalizedShape) => {
 
   const copy = JSON.parse(JSON.stringify(state));
 
-  normalizedShape.forEach((shapeRow, rowIndex) =>
-    shapeRow.forEach((cell, colIndex) => {
+  normalizedShape.forEach((shapeRow: any, rowIndex: any) =>
+    shapeRow.forEach((cell: any, colIndex: any) => {
       copy[rowIndex + rowOffset][colIndex + colOffset] = cell;
-    }),
+    })
   );
 
   return copy;
 };
 
-export const updateCell = (state, rowI, colI) =>
-  state.map((row, rowIndex) =>
+export const updateCell = (state: any, rowI: number, colI: number) =>
+  state.map((row: any, rowIndex: any) =>
     rowIndex === rowI
-      ? row.map((cell, colIndex) => (colIndex === colI ? !cell : cell))
-      : row,
+      ? row.map((cell: any, colIndex: any) =>
+          colIndex === colI ? !cell : cell
+        )
+      : row
   );

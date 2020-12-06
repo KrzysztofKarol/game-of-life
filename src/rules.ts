@@ -1,14 +1,10 @@
-import * as R from 'ramda';
-import { ALIVE, DEAD } from './consts';
+import * as R from "ramda";
+import { ALIVE, CellStatus, DEAD } from "./consts";
 
 // Disable eslint rule because of R.useWith
 /* eslint-disable react-hooks/rules-of-hooks */
 // prettier-ignore
-/**
- * @param {CellStatus} cell
- * @param {number}     numOfLivingNeighbors
- */
-export const applyRules = (cell, numOfLivingNeighbors) => R.cond([
+export const applyRules = (cell: CellStatus, numOfLivingNeighbors: number) => R.cond([
     // 1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
     [R.useWith(R.and, [R.equals(ALIVE), R.lt(R.__, 2)]),                      R.always(DEAD) ],
 
