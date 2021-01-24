@@ -1,7 +1,7 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { shapes } from './shapes';
-import { insertShape } from './store/actions';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { shapes } from "./shapes";
+import { insertShape } from "./store/actions";
 
 function ShapeHolder() {
   const dispatch = useDispatch();

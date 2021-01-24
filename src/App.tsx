@@ -1,24 +1,24 @@
 // This solution is based on
 // https://www.freecodecamp.org/news/coding-the-game-of-life-with-react-7de2385b7356/
 
-import * as R from 'ramda';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import AnimationSpeedSlider from './AnimationSpeedSlider';
-import './App.css';
-import Board from './Board';
-import { randomBoard, withPentomino } from './board-templates';
-import ShapeHolder from './ShapeHolder';
+import * as R from "ramda";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import AnimationSpeedSlider from "./AnimationSpeedSlider";
+import Board from "./Board";
+import { randomBoard, withPentomino } from "./board-templates";
+import ShapeHolder from "./ShapeHolder";
 import {
   initBoard,
   toggleStartStop as toggleStartStopAction,
   updateBoard,
-} from './store/actions';
+} from "./store/actions";
+import { useSelector } from "./store/useSelector";
 
 function App() {
   const dispatch = useDispatch();
-  const board = useSelector(R.prop('board'));
-  const { speed, started } = useSelector(R.prop('settings'));
+  const board = useSelector(R.prop("board"));
+  const { speed, started } = useSelector(R.prop("settings"));
 
   const toggleStartStop = () => {
     dispatch(toggleStartStopAction());
@@ -35,7 +35,7 @@ function App() {
     if (started) {
       const timer = window.setInterval(
         () => dispatch(updateBoard()),
-        stepInterval,
+        stepInterval
       );
 
       return () => {
@@ -47,7 +47,7 @@ function App() {
   return (
     <div>
       <button onClick={toggleStartStop} style={{ fontSize: 24 }}>
-        {started ? '⏸' : '▶️'}
+        {started ? "⏸" : "▶️"}
       </button>
       <ShapeHolder />
       {board && <Board board={board} />}

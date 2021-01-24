@@ -1,11 +1,15 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import './Board.css';
-import { ALIVE } from './consts';
-import { updateCell } from './store/actions';
+import { FC } from "react";
+import { useDispatch } from "react-redux";
+import "./Board.css";
+import { ALIVE } from "./consts";
+import { updateCell } from "./store/actions";
+import { Board } from "./store/types";
 
-function Board({ board }) {
+interface Props {
+  board: Board;
+}
+
+const BoardComponent: FC<Props> = ({ board }) => {
   const dispatch = useDispatch();
 
   const rows = board.length;
@@ -18,10 +22,10 @@ function Board({ board }) {
       td.push(
         <td
           key={`${r},${c}`}
-          className={`cell ${board[r][c] === ALIVE ? 'alive' : 'dead'}`}
+          className={`cell ${board[r][c] === ALIVE ? "alive" : "dead"}`}
           onClick={() => dispatch(updateCell(r, c))}
           onMouseOver={({ ctrlKey }) => ctrlKey && dispatch(updateCell(r, c))}
-        />,
+        />
       );
     }
     tr.push(<tr key={r}>{td}</tr>);
@@ -31,10 +35,6 @@ function Board({ board }) {
       <tbody>{tr}</tbody>
     </table>
   );
-}
-Board.propTypes = {
-  // TODO: Strictify
-  board: PropTypes.array.isRequired,
 };
 
-export default Board;
+export default BoardComponent;

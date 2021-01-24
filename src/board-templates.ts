@@ -1,5 +1,5 @@
-import { ALIVE, DEAD } from './consts';
-import { normalize } from './board.helper';
+import { ALIVE, DEAD } from "./consts";
+import { normalize } from "./board.helper";
 
 const numOfRows = 20;
 const numOfCols = 20;

@@ -1,20 +1,22 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 import {
   getNextBoard,
   insertShape,
   normalize,
   updateCell,
-} from '../board.helper';
+} from "../board.helper";
 import {
+  ActionTypes,
+  Board,
   INIT_BOARD,
   INSERT_SHAPE,
   SET_ANIMATION_SPEED,
   TOGGLE_START_STOP,
   UPDATE_BOARD,
   UPDATE_CELL,
-} from './actions';
+} from "./types";
 
-function boardReducer(state = null, action) {
+function boardReducer(state: Board = [[]], action: ActionTypes) {
   switch (action.type) {
     case INIT_BOARD:
       return action.payload;
@@ -33,7 +35,10 @@ function boardReducer(state = null, action) {
   }
 }
 
-function settingsReducer(state = { speed: 2, started: true }, action) {
+function settingsReducer(
+  state = { speed: 2, started: true },
+  action: ActionTypes
+) {
   switch (action.type) {
     case SET_ANIMATION_SPEED:
       return {
@@ -45,7 +50,6 @@ function settingsReducer(state = { speed: 2, started: true }, action) {
         ...state,
         started: !state.started,
       };
-
     default:
       return state;
   }
