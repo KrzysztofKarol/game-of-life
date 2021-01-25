@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@types/jest": "26.0.20",
-    "@types/ramda": "0.27.35",
+    "@types/ramda": "0.27.36",
     "@types/react": "17.0.0",
     "@types/react-redux": "7.1.16",
     "conventional-changelog": "3.1.24",
