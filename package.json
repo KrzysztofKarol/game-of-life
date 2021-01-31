@@ -61,7 +61,7 @@
     "lint-staged": "10.5.3",
     "prettier": "2.2.1",
     "redux-devtools-extension": "2.13.8",
-    "start-server-and-test": "1.11.7"
+    "start-server-and-test": "1.12.0"
   },
   "husky": {
     "hooks": {
