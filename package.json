@@ -58,7 +58,7 @@
     "conventional-changelog": "3.1.24",
     "cypress": "8.5.0",
     "husky": "7.0.2",
-    "lint-staged": "11.2.0",
+    "lint-staged": "11.2.1",
     "prettier": "2.4.1",
     "redux-devtools-extension": "2.13.9",
     "start-server-and-test": "1.14.0"
