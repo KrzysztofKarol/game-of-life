@@ -55,7 +55,7 @@
     "@types/ramda": "0.27.59",
     "@types/react": "17.0.38",
     "@types/react-redux": "7.1.21",
-    "conventional-changelog": "3.1.24",
+    "conventional-changelog": "3.1.25",
     "cypress": "9.2.0",
     "husky": "7.0.4",
     "lint-staged": "12.1.4",
