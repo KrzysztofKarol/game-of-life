@@ -51,7 +51,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "27.4.0",
+    "@types/jest": "27.4.1",
     "@types/ramda": "0.27.59",
     "@types/react": "17.0.39",
     "@types/react-redux": "7.1.22",
