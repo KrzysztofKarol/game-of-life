@@ -41,9 +41,11 @@ const trim = R.trim;
 const getActual = (board: string, generations = 1) => {
   // https://github.com/ramda/ramda/wiki/Cookbook#apply-a-given-function-n-times
   // applyN :: (a -> a) -> Number -> (a -> a)
+  // @ts-ignore No idea
   const applyN = R.compose(R.reduceRight(R.compose, R.identity), R.repeat);
 
   return applyN(
+    // @ts-ignore No idea
     R.pipe(normalize, getNextBoard, denormalize),
     generations
   )(board);
