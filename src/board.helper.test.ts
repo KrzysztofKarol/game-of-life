@@ -38,7 +38,7 @@ const boards = Object.freeze([
 ]);
 const trim = R.trim;
 
-const getActual = (board, generations = 1) => {
+const getActual = (board: string, generations = 1) => {
   // https://github.com/ramda/ramda/wiki/Cookbook#apply-a-given-function-n-times
   // applyN :: (a -> a) -> Number -> (a -> a)
   const applyN = R.compose(R.reduceRight(R.compose, R.identity), R.repeat);
