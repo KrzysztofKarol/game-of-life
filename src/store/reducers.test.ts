@@ -8,14 +8,14 @@ describe("board", () => {
     it("should return provided board", () => {
       const board: Board = [];
 
-      const actual = _boardReducer(null, initBoard(board));
+      const actual = _boardReducer(undefined, initBoard(board));
 
       expect(actual).toBe(board);
     });
   });
 
   describe("UPDATE_BOARD", () => {
-    let getNextBoardSpy;
+    let getNextBoardSpy: any;
 
     beforeAll(() => {
       getNextBoardSpy = jest.spyOn(boardHelper, "getNextBoard");
@@ -26,8 +26,8 @@ describe("board", () => {
     });
 
     it("should call getNextBoard and return its result", () => {
-      const state = [];
-      const expected = [];
+      const state: Board = [];
+      const expected: Board = [];
       getNextBoardSpy.mockReturnValue(expected);
 
       const actual = _boardReducer(state, updateBoard());
@@ -39,8 +39,9 @@ describe("board", () => {
 
   describe("UNKNOWN_ACTION", () => {
     it("should return state", () => {
-      const state = [];
+      const state: Board = [];
 
+      // @ts-ignore Unsupported action on purpose
       const actual = _boardReducer(state, { type: "UNKNOWN_ACTION" });
 
       expect(actual).toBe(state);

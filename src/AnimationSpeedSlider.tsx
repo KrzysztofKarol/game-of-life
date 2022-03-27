@@ -1,5 +1,5 @@
-import Slider from "@material-ui/core/Slider";
-import Typography from "@material-ui/core/Typography";
+import Slider from "@mui/material/Slider";
+import Typography from "@mui/material/Typography";
 import * as R from "ramda";
 import React from "react";
 import { useDispatch } from "react-redux";
