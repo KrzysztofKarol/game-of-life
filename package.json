@@ -64,7 +64,7 @@
     "cz-conventional-changelog": "3.3.0",
     "husky": "7.0.4",
     "lint-staged": "12.3.7",
-    "prettier": "2.6.1",
+    "prettier": "2.6.2",
     "redux-devtools-extension": "2.13.9",
     "start-server-and-test": "1.14.0"
   },
