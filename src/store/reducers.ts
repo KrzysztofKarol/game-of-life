@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import {
   getNextBoard,
   insertShape,
@@ -16,7 +15,7 @@ import {
   UPDATE_CELL,
 } from "./types";
 
-function boardReducer(state: Board = [[]], action: ActionTypes) {
+export function boardReducer(state: Board = [[]], action: ActionTypes) {
   switch (action.type) {
     case INIT_BOARD:
       return action.payload;
@@ -35,7 +34,7 @@ function boardReducer(state: Board = [[]], action: ActionTypes) {
   }
 }
 
-function settingsReducer(
+export function settingsReducer(
   state = { speed: 2, started: true },
   action: ActionTypes
 ) {
@@ -54,10 +53,3 @@ function settingsReducer(
       return state;
   }
 }
-
-export const rootReducer = combineReducers({
-  board: boardReducer,
-  settings: settingsReducer,
-});
-export const _boardReducer = boardReducer;
-export const _settingsReducer = settingsReducer;

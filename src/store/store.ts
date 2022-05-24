@@ -1,7 +1,11 @@
-import { createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { rootReducer } from "./reducers";
+import { configureStore } from "@reduxjs/toolkit";
+import { boardReducer, settingsReducer } from "./reducers";
 
-export const store = createStore(rootReducer, composeWithDevTools());
+export const store = configureStore({
+  reducer: {
+    board: boardReducer,
+    settings: settingsReducer,
+  },
+});
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type RootState = ReturnType<typeof store.getState>;
