@@ -23,4 +23,5 @@ export const applyRules = (cell: CellStatus, numOfLivingNeighbors: number) => R.
 
     // Otherwise do nothing
     [R.T,                                                                     R.always(cell)]
+    // @ts-ignore No idea
   ])(cell, numOfLivingNeighbors);
