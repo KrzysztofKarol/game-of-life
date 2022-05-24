@@ -3,7 +3,7 @@
 
 import * as R from "ramda";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AnimationSpeedSlider from "./AnimationSpeedSlider";
 import Board from "./Board";
 import { randomBoard, withPentomino } from "./board-templates";
@@ -13,12 +13,13 @@ import {
   toggleStartStop as toggleStartStopAction,
   updateBoard,
 } from "./store/actions";
-import { useSelector } from "./store/useSelector";
+import { RootState } from "./store/store";
 
 function App() {
   const dispatch = useDispatch();
-  const board = useSelector(R.prop("board"));
-  const { speed, started } = useSelector(R.prop("settings"));
+  const board = useSelector<RootState>(R.prop("board")) as any;
+  // @ts-ignore No time
+  const { speed, started } = useSelector<RootState>(R.prop("settings"));
 
   const toggleStartStop = () => {
     dispatch(toggleStartStopAction());

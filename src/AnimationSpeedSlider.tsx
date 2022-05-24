@@ -2,9 +2,9 @@ import Slider from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
 import * as R from "ramda";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setAnimationSpeed } from "./store/actions";
-import { useSelector } from "./store/useSelector";
+import { RootState } from "./store/store";
 
 const marks = [1, 2, 5, 10, 20].map((mark) => ({
   value: mark,
@@ -13,7 +13,8 @@ const marks = [1, 2, 5, 10, 20].map((mark) => ({
 
 function AnimationSpeedSlider() {
   const dispatch = useDispatch();
-  const { speed } = useSelector(R.prop("settings"));
+  // @ts-ignore No time
+  const { speed } = useSelector<RootState>(R.prop("settings"));
 
   return (
     <>

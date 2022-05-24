@@ -1,6 +1,6 @@
 import * as boardHelper from "../board.helper";
 import { initBoard, setAnimationSpeed, updateBoard } from "./actions";
-import { _boardReducer, _settingsReducer } from "./reducers";
+import { boardReducer, settingsReducer } from "./reducers";
 import { Board } from "./types";
 
 describe("board", () => {
@@ -8,7 +8,7 @@ describe("board", () => {
     it("should return provided board", () => {
       const board: Board = [];
 
-      const actual = _boardReducer(undefined, initBoard(board));
+      const actual = boardReducer(undefined, initBoard(board));
 
       expect(actual).toBe(board);
     });
@@ -30,7 +30,7 @@ describe("board", () => {
       const expected: Board = [];
       getNextBoardSpy.mockReturnValue(expected);
 
-      const actual = _boardReducer(state, updateBoard());
+      const actual = boardReducer(state, updateBoard());
 
       expect(actual).toBe(expected);
       expect(getNextBoardSpy).toHaveBeenCalledWith(state);
@@ -42,7 +42,7 @@ describe("board", () => {
       const state: Board = [];
 
       // @ts-ignore Unsupported action on purpose
-      const actual = _boardReducer(state, { type: "UNKNOWN_ACTION" });
+      const actual = boardReducer(state, { type: "UNKNOWN_ACTION" });
 
       expect(actual).toBe(state);
     });
@@ -59,7 +59,7 @@ describe("settings", () => {
         speed: 10,
       };
 
-      const actual = _settingsReducer(state, setAnimationSpeed(speed));
+      const actual = settingsReducer(state, setAnimationSpeed(speed));
 
       expect(actual).toEqual(expected);
     });
