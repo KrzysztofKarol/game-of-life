@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@types/jest": "29.5.0",
-    "@types/ramda": "0.28.24",
+    "@types/ramda": "0.29.0",
     "@types/react": "18.0.35",
     "conventional-changelog": "3.1.25",
     "cypress": "12.9.0",
