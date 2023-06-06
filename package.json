@@ -59,7 +59,7 @@
     "@types/jest": "29.5.2",
     "@types/ramda": "0.29.2",
     "@types/react": "18.2.8",
-    "conventional-changelog": "3.1.25",
+    "conventional-changelog": "4.0.0",
     "cypress": "12.13.0",
     "cz-conventional-changelog": "3.3.0",
     "husky": "8.0.3",
