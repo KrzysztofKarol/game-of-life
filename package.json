@@ -60,7 +60,7 @@
     "@types/ramda": "0.29.3",
     "@types/react": "18.2.15",
     "conventional-changelog": "4.0.0",
-    "cypress": "12.17.1",
+    "cypress": "12.17.2",
     "cz-conventional-changelog": "3.3.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.3",
