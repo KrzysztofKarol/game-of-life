@@ -18,7 +18,7 @@ RUN npm run build
 
 
 ### STAGE 2: Setup ###
-FROM nginx:1.25.1-alpine
+FROM nginx:1.25.2-alpine
 
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
