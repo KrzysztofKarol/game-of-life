@@ -12,7 +12,7 @@
     "@testing-library/react": "14.2.1",
     "@testing-library/user-event": "14.5.2",
     "@types/node": "20.11.25",
-    "@types/react-dom": "18.2.20",
+    "@types/react-dom": "18.2.21",
     "ramda": "0.29.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -58,7 +58,7 @@
   "devDependencies": {
     "@types/jest": "29.5.12",
     "@types/ramda": "0.29.11",
-    "@types/react": "18.2.63",
+    "@types/react": "18.2.64",
     "conventional-changelog": "5.1.0",
     "cypress": "13.6.6",
     "cz-conventional-changelog": "3.3.0",
