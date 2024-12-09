@@ -3,8 +3,8 @@
   "version": "0.6.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "11.13.5",
-    "@emotion/styled": "11.13.5",
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.0",
     "@mui/material": "6.1.10",
     "@mui/styles": "6.1.10",
     "@reduxjs/toolkit": "1.9.7",
