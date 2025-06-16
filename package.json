@@ -56,7 +56,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "29.5.14",
+    "@types/jest": "30.0.0",
     "@types/ramda": "0.30.2",
     "@types/react": "18.3.23",
     "conventional-changelog": "7.1.0",
